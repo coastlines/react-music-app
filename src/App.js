@@ -1,25 +1,30 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import './App.css';
 import NavBar from './Components/navbar';
-import BasicTextFields from './Components/login';
-// import OnlineStatusToggle from './Components/onlineStatusToggle';
-// import VolumeSlider from './Components/volumeSlider';
-// import AudioQualitySelect from './Components/audioQualitySelect';
+import SignIn from './Components/login';
 import Dashboard from './Components/dashboard';
 
-
 // transform slider 90 degrees to make an equalizer? 
-function App() {
+
+function App(props) {
+  // const [isLoggedIn, setLogin] = 
+  //   React.useState(false)
   return (
-    <div id='main'>
-      <NavBar></NavBar>
-      <BasicTextFields></BasicTextFields>
-      <Dashboard></Dashboard>
-      {/* <OnlineStatusToggle></OnlineStatusToggle>
-      <VolumeSlider></VolumeSlider>
-      <AudioQualitySelect></AudioQualitySelect> */}
-    </div>
-  );
+      <div id='main'>
+        <NavBar></NavBar>
+        <DisplayComponent></DisplayComponent>
+      </div>
+  )
+    
+}
+
+function DisplayComponent(props) {
+  const {isLoggedIn, setLogin} = React.useState(false);
+  if (!isLoggedIn) {
+    return <SignIn></SignIn>;
+  }
+    return <Dashboard></Dashboard>;
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +12,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { render } from '@testing-library/react';
 
 function Copyright() {
   return (
@@ -47,39 +46,41 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default class SignIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // classes: useStyles(),
-      isLoggedIn: true,
-    }
-  }
+export default function SignIn() {
+  const classes = useStyles();
 
-  handleClick = () => {
-    this.setState ({
-      isLoggedIn: !this.state.isLoggedIn,
-    })
-  }
+  const [isLoggedIn, setLogin] = 
+    React.useState(false);
 
-  // const classes = useStyles();
-  
-  render() {
+  const handleClick = (event) => {
+    console.log("submitted")
+    // setAudioQuality(event.target.value);
+
+    // if (event.target.value < 2) {
+    //   setWarning(" Music quality is degraded. Increase quality if your connection allows it.")
+      
+    //   console.log(warning)
+    // } else {
+    //   setWarning("")
+    //   console.log(warning)
+    // }
+  };
+
   return (
-    <Container component="main" maxWidth="xs"> 
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div >
-        <Avatar >
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form  noValidate>
+        <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
-            required
+            // required
             fullWidth
             id="email"
             label="Email Address"
@@ -90,7 +91,7 @@ export default class SignIn extends Component {
           <TextField
             variant="outlined"
             margin="normal"
-            required
+            // required
             fullWidth
             name="password"
             label="Password"
@@ -103,12 +104,12 @@ export default class SignIn extends Component {
             label="Remember me"
           />
           <Button
-            type="button"
+            type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            className={''}
-            onClick={this.handleClick}
+            className={classes.submit}
+            onClick={handleClick}
           >
             Sign In
           </Button>
@@ -130,5 +131,5 @@ export default class SignIn extends Component {
         <Copyright />
       </Box>
     </Container>
-  )};
+  );
 }
