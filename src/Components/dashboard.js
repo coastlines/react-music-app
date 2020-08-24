@@ -13,7 +13,23 @@ class Dashboard extends Component{
     }
   }
   
-  // componentDidUpdate(prevProps, prevState) {
+  render() {
+  return (
+    <div>
+      <OnlineStatusToggle></OnlineStatusToggle>
+      <VolumeSlider></VolumeSlider>
+      <AudioQualitySelect></AudioQualitySelect>
+      {/* <p>{this.state.alerts}</p> */}
+    </div>
+  )}
+}
+
+export default Dashboard;
+
+
+// onChange={ props => this.componentDidUpdate(this.state.warning)} volumeWarning={this.state.warning}
+
+// componentDidUpdate(prevProps, prevState) {
   //   console.log('Component did update!')
   // }
   
@@ -50,21 +66,3 @@ class Dashboard extends Component{
     
   //   // console.log(volumeNotification)
   // }
-
-  
-
-  render() {
-  return (
-    <div>
-      <OnlineStatusToggle></OnlineStatusToggle>
-      <VolumeSlider></VolumeSlider>
-      <AudioQualitySelect></AudioQualitySelect>
-      {/* <p>{this.state.alerts}</p> */}
-    </div>
-  )}
-}
-
-export default Dashboard;
-
-
-// onChange={ props => this.componentDidUpdate(this.state.warning)} volumeWarning={this.state.warning}
