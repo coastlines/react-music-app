@@ -1,17 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from '@material-ui/core/Card';
 import Switch from '@material-ui/core/Switch';
 
 export default function OnlineStatusToggle() {
   const [state, setState] = 
-    React.useState({
+    useState({
     isOnline: true,
+    notification: "",
   })
 
  const handleChange = (event) => {
-   setState({
-     ...state, 
-     [event.target.name]: event.target.checked });
+  if (!event.target.checked) {
+    setState({
+      isOnline: event.target.checked, // false
+      notifications: "Your application is offline. You won't be able to share or stream music to other devices.",
+    })
+  } else {
+    setState({
+      isOnline: event.target.checked, //true
+      notifications: "",
+    })
+  }
+
    };
 
   return (

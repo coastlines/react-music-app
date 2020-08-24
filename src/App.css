@@ -2,5 +2,9 @@
   text-align: center;
 }
 
+#main {
+  padding-bottom: 40px !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 }
