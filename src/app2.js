@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import './App.css';
 import NavBar from './Components/navbar';
 // import SignIn from './Components/login';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Dashboard from './Components/dashboard';
-// import { render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // transform slider 90 degrees to make an equalizer? 
 
 function App(props) {
+  // const [isLoggedIn, setLogin] = 
+  //   React.useState(false)
   return (
       <div id='main'>
         <NavBar></NavBar>
@@ -20,31 +23,35 @@ function App(props) {
     
 }
 
-class DisplayComponent extends Component {
+function DisplayComponent(props) {
+  const {isLoggedIn, setLogin} = React.useState(false);
 
-  constructor(props) {
-    super(props);
-      this.state = {
-        isLoggedIn: false,
-      };
-      this.handleClick = this.handleClick.bind(this);
-    }
-
-  handleClick() {
-    if (this.state.isLoggedIn === true) {
-    this.setState({
-      isLoggedIn: false
-    })}
-    else {
-      this.setState({
-        isLoggedIn: true
-      })
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //     this.setState ({
+  //       isLoggedIn: false,
+  //     })
+  //   }
   
-    render() {
 
-      if (!this.state.isLoggedIn) {
+  const handleClick = () => {
+    this.setLogin(true)
+    console.log(isLoggedIn)
+  }
+
+  // handleClick = () => {
+  //   const loginStatus = this.props.isLoggedIn ? false : true;
+
+  //   this.setState({
+  //     isLoggedIn: loginStatus,
+  //   });
+  // }
+
+  
+    // render() {
+      // const isLoggedIn = isLoggedIn;
+
+      if (!isLoggedIn && !isLoggedIn) {
         return (
             <form >
             {/* noValidate */}
@@ -56,7 +63,7 @@ class DisplayComponent extends Component {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
+                // autoComplete="email"
                 autoFocus
               />
               <TextField
@@ -68,35 +75,24 @@ class DisplayComponent extends Component {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                // autoComplete="current-password"
               />
               <Button
                 type="button"
                 fullWidth
                 variant="contained"
                 color="primary"
-                onClick={this.handleClick}
+                // className={''}
+                // isLoggedIn={isLoggedIn}
+                onClick={isLoggedIn}
               >
                 Sign In
               </Button>
             </form>
-    ) } else {
-     return ( 
-     <div>
-      <Dashboard></Dashboard>
-      <Button
-                type="button"
-                fullWidth
-                variant="contained"
-                color="primary"
-                onClick={this.handleClick}
-      >
-      Logout
-      </Button>
-    </div>
-               )
-    }
+    ) }
+    return ( <Dashboard>"pig"</Dashboard> );
+  
   }
-} 
+// }
 
 export default App;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -63,10 +63,10 @@ export default class SignIn extends Component {
   }
 
   // const classes = useStyles();
-  
+
   render() {
   return (
-    <Container component="main" maxWidth="xs"> 
+    <Container component="main" maxWidth="xs" loginStatus={this.state.isLoggedIn}> 
       <CssBaseline />
       <div >
         <Avatar >

@@ -4,13 +4,7 @@ import VolumeSlider from './volumeSlider';
 import AudioQualitySelect from './audioQualitySelect';
 
 class Dashboard extends Component{
-  constructor(props) {
-    super(props)
-    // this.state = {
-    //   warning: [],
-    // }
-  }
-  
+
   render() {
   return (
     <div>
