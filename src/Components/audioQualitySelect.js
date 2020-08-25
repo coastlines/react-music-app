@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 // import Card from '@material-ui/core/Card';
 // import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Button from "@material-ui/core/Button";
 
 // const useStyles = makeStyles((theme) => ({
 //   button: {
@@ -17,7 +17,7 @@ import Button from '@material-ui/core/Button';
 //     minWidth: 120,
 //   },
 // }));
- 
+
 export default function AudioQualitySelect() {
   // const classes = useStyles();
   const [audioQuality, setAudioQuality] = React.useState(2);
@@ -28,12 +28,14 @@ export default function AudioQualitySelect() {
     setAudioQuality(event.target.value);
 
     if (event.target.value < 2) {
-      setWarning(" Music quality is degraded. Increase quality if your connection allows it.")
-     
-      console.log(warning)
+      setWarning(
+        " Music quality is degraded. Increase quality if your connection allows it."
+      );
+
+      console.log(warning);
     } else {
-      setWarning("")
-      console.log(warning)
+      setWarning("");
+      console.log(warning);
     }
   };
 
@@ -47,11 +49,11 @@ export default function AudioQualitySelect() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>
-        Open the select
-      </Button>
+      <Button onClick={handleOpen}>Open the select</Button>
       <FormControl>
-        <InputLabel id="demo-controlled-open-select-label">Audio Quality</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">
+          Audio Quality
+        </InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
@@ -62,8 +64,7 @@ export default function AudioQualitySelect() {
           default={"Normal"}
           onChange={handleChange}
         >
-          <MenuItem value="Audio Quality">
-          </MenuItem>
+          <MenuItem value="Audio Quality"></MenuItem>
           <MenuItem value={1}>Low</MenuItem>
           <MenuItem value={2}>Normal</MenuItem>
           <MenuItem value={3}>High</MenuItem>
