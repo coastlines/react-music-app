@@ -5,7 +5,7 @@ import Switch from "@material-ui/core/Switch";
 export default function OnlineStatusToggle() {
   const [state, setState] = useState({
     isOnline: true,
-    notification: "",
+    notifications: "",
   });
 
   const handleChange = (event) => {
@@ -24,7 +24,9 @@ export default function OnlineStatusToggle() {
   };
 
   return (
-    <Card>
+    <Card className="componentCard"> 
+      <h3>Online Status</h3>
+      <p>{state.notifications}</p>
       <Switch
         checked={state.isOnline}
         onChange={handleChange}

@@ -1,25 +1,12 @@
 import React from "react";
-// import Card from '@material-ui/core/Card';
-// import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Button from "@material-ui/core/Button";
-
-// const useStyles = makeStyles((theme) => ({
-//   button: {
-//     display: 'block',
-//     marginTop: theme.spacing(2),
-//   },
-//   formControl: {
-//     margin: theme.spacing(1),
-//     minWidth: 120,
-//   },
-// }));
+// import Button from "@material-ui/core/Button";
 
 export default function AudioQualitySelect() {
-  // const classes = useStyles();
   const [audioQuality, setAudioQuality] = React.useState(2);
   const [warning, setWarning] = React.useState("");
   const [open, setOpen] = React.useState(false);
@@ -48,15 +35,16 @@ export default function AudioQualitySelect() {
   };
 
   return (
-    <div>
-      <Button onClick={handleOpen}>Open the select</Button>
+    <Card className="componentCard">
+      <h3>Audio Quality</h3>
+      {/* <Button onClick={handleOpen}>Audio Quality</Button> */}
+      <p>{warning}</p>
       <FormControl>
-        <InputLabel id="demo-controlled-open-select-label">
+        <InputLabel id="audioQualityInputLabel">
           Audio Quality
         </InputLabel>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
+          id="audioQualitySelect"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
@@ -70,6 +58,6 @@ export default function AudioQualitySelect() {
           <MenuItem value={3}>High</MenuItem>
         </Select>
       </FormControl>
-    </div>
+    </Card>
   );
 }

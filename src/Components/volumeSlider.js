@@ -1,8 +1,6 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
 import Slider from "@material-ui/core/Slider";
-import VolumeDown from "@material-ui/icons/VolumeDown";
-import VolumeUp from "@material-ui/icons/VolumeUp";
 
 export default function VolumeSlider() {
   const [value, setValue] = React.useState(20);
@@ -16,15 +14,15 @@ export default function VolumeSlider() {
       setWarning(
         "Listening to music at a high volume could cause long-term hearing loss."
       );
-      //  componentDidUpdate(setWarning);
     } else {
       setWarning("");
     }
   };
 
   return (
-    <Card>
-      <VolumeDown />
+    <Card className="componentCard">
+      <h3>Volume</h3>
+      <p>{warning}</p>
       <Slider
         defaultValue={value}
         step={10}
@@ -37,7 +35,6 @@ export default function VolumeSlider() {
         max={100}
         warning={warning}
       />
-      <VolumeUp />
     </Card>
   );
 }
